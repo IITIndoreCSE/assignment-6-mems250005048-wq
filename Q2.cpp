@@ -25,7 +25,7 @@ cin>>Array2[i];
 int joinedsize = size1+size2;
 int JoinedArray[joinedsize];
 for (int i=0; i < size1 ;i++){
-JoinedArray[i] = Array[i];
+JoinedArray[i] = Array1[i];
 }
 for (int i=0; i < size2 ;i++){
 JoinedArray[size1 + i]=Array2[i]
