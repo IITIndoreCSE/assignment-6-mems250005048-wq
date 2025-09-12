@@ -3,6 +3,48 @@
 
 
 
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+  
+    cout << "Enter the size of the array: ";
+    cin >> n;
+
+    int* arr = new int[n];
+
+    
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int key;
+    cout << "Enter the number to search: ";
+    cin >> key;
+
+    bool found = false;
+    int position = -1;
+
+  
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == key) {
+            found = true;
+            position = i; 
+            break;
+        }
+    }
+
+    if (found)
+        cout << "Found at position " << position << endl;
+    else
+        cout << "Not Found" << endl;
+
+    
+    return 0;
+}
 
 
 
