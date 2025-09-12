@@ -7,6 +7,30 @@
 
 
 
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter a positive integer: ";
+    cin >> n;
+
+    if (n < 1) {
+        cout << "Please enter a number greater than 0." << endl;
+        return 0;
+    }
+
+    int sum = 0;
+
+    // Loop to add numbers from 1 to n
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+    }
+
+    cout << "The sum of natural numbers up to " << n << " is " << sum << endl;
+
+    return 0;
+}
 
 
 
