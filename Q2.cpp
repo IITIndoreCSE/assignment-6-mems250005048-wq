@@ -22,15 +22,17 @@ cout<<"Enter "<<size2<<"elements:";
 for(int i=0; i<size2; i++){
 cin>>Array2[i];
 }
-int joined size = size1+size2;
-int Joined Array[joined size];
-for (int i=0; i<size1 ;i++){
-Joined Array[i] = Array[i];
+int joinedsize = size1+size2;
+int JoinedArray[joinedsize];
+for (int i=0; i < size1 ;i++){
+JoinedArray[i] = Array[i];
 }
-for (in i=0;i<size2;i++){
-Joined Array[size2+i]=Array2[i]
+for (int i=0; i < size2 ;i++){
+JoinedArray[size1 + i]=Array2[i]
 }
-cout<< Joined Array[i]<<" ";
+cout<< "Joined Array:  ";
+for (int i = o; i<joinedsize; i++){
+  cout<< JoinedArray[i]<<" ";
 }
 cout << endl;
 
