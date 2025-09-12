@@ -7,7 +7,7 @@ using namespace std;
 int main(){
   int size1;
   cout<<"Enter the number of elements:";
-cin>>size;
+cin>>size1;
 int Array1[size1];
 cout<<"Enter "<<size1<<"elements:";
 for(int i=0; i<size1; i++){
@@ -16,7 +16,7 @@ cin>>Array1[i];
 
 int size2;
   cout<<"Enter the number of elements:";
-cin>>size;
+cin>>size2;
 int Array2[size2];
 cout<<"Enter "<<size2<<"elements:";
 for(int i=0; i<size2; i++){
