@@ -7,6 +7,56 @@
 
 
 
+#include <iostream>
+#include <cstdlib> // for rand() and srand()
+#include <ctime> // for time()
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Enter the number of letters to generate: ";
+    cin >> n;
+
+    char* arr = new char[n];
+
+    // Initialize random seed
+    srand(time(0));
+
+    // Populate array with random letters (uppercase A-Z)
+    for (int i = 0; i < n; i++) {
+        arr[i] = 'A' + rand() % 26;
+    }
+
+    // Display original array
+    cout << "Original array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    // Bubble sort to arrange alphabetically
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                char temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    // Display sorted array
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    delete[] arr;
+    return 0;
+}
+	
 
 
 
