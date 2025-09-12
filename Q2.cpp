@@ -1,11 +1,38 @@
 // Write a program in C++ to create a function called join that joins two smaller arrays and creates a larger one. The two small arrays should be passed as parameters in the function and the larger array should be returned.
 
 
+#include <iostream>
+using namespace std;
 
+int main(){
+  int size1;
+  cout<<"Enter the number of elements:";
+cin>>size;
+int Array1[size1];
+cout<<"Enter "<<size1<<"elements:";
+for(int i=0; i<size1; i++){
+cin>>Array1[i];
+}
 
-
-
-
+int size2;
+  cout<<"Enter the number of elements:";
+cin>>size;
+int Array2[size2];
+cout<<"Enter "<<size2<<"elements:";
+for(int i=0; i<size2; i++){
+cin>>Array2[i];
+}
+int joined size = size1+size2;
+int Joined Array[joined size];
+for (int i=0; i<size1 ;i++){
+Joined Array[i] = Array[i];
+}
+for (in i=0;i<size2;i++){
+Joined Array[size2+i]=Array2[i]
+}
+cout<< Joined Array[i]<<" ";
+}
+cout << endl;
 
 
 
