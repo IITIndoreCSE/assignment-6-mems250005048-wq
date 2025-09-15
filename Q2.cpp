@@ -1,74 +1,69 @@
 // Write a program in C++ to create a function called join that joins two smaller arrays and creates a larger one. The two small arrays should be passed as parameters in the function and the larger array should be returned.
 
-
-
-
-
-
-
-
-
-
 #include <iostream>
 using namespace std;
 
-int main(){
-  int size1;
-  cout<<"Enter the number of elements:";
-cin>>size1;
-int Array1[size1];
-cout<<"Enter "<<size1<<" elements:";
-for(int i=0; i<size1; i++){
-cin>>Array1[i];
-}
 
-int size2;
-  cout<<"Enter the number of elements:";
-cin>>size2;
-int Array2[size2];
-cout<<"Enter "<<size2<<" elements:";
-for(int i=0; i<size2; i++){
-cin>>Array2[i];
-}
-int joinedsize = size1+size2;
-int JoinedArray[joinedsize];
-for (int i=0; i < size1 ;i++){
-JoinedArray[i] = Array1[i];
-}
-for (int i=0; i < size2 ;i++){
-JoinedArray[size1 + i]=Array2[i];
-}
-cout<< "Joined Array:  [ ";
-for (int i = 0; i<joinedsize; i++){
-  cout<< JoinedArray[i]<<" ";
-}
-cout << "]"<< endl;
+int* join(int arr1[], int size1, int arr2[], int size2) {
+    int* result = new int[size1 + size2]; 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-return 0;
     
+    for (int i = 0; i < size1; i++) {
+        result[i] = arr1[i];
+    }
+
+    
+    for (int i = 0; i < size2; i++) {
+        result[size1 + i] = arr2[i];
+    }
+
+    return result; 
 }
+
+int main() {
+    int size1, size2;
+
+    cout << "Enter size of Array1: ";
+    cin >> size1;
+    int* arr1 = new int[size1];
+    cout << "Enter elements of Array1: ";
+    for (int i = 0; i < size1; i++) {
+        cin >> arr1[i];
+    }
+
+    cout << "Enter size of Array2: ";
+    cin >> size2;
+    int* arr2 = new int[size2];
+    cout << "Enter elements of Array2: ";
+    for (int i = 0; i < size2; i++) {
+        cin >> arr2[i];
+    }
+
+
+    int* joined = join(arr1, size1, arr2, size2);
+
+    cout << "Joined Array: [";
+    for (int i = 0; i < size1 + size2; i++) {
+        cout << joined[i];
+        if (i < size1 + size2 - 1) cout << ", ";
+    }
+    cout << "]" << endl;
+
+  
+    delete[] arr1;
+    delete[] arr2;
+    delete[] joined;
+
+    return 0;
+}
+
+
+
+
+
+
+
+
 
 
 
