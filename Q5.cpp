@@ -3,14 +3,13 @@
 #include <iostream>
 using namespace std;
 
-// Function to swap characters
 void swapChar(char &a, char &b) {
     char temp = a;
     a = b;
     b = temp;
 }
 
-// Function to sort array alphabetically (Selection Sort)
+
 void sortAlphabet(char arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         int minIndex = i;
@@ -26,19 +25,19 @@ void sortAlphabet(char arr[], int n) {
 int main() {
     int size;
 
-    // Ask user for length
+    
     cout << "Enter length of array: ";
     cin >> size;
 
     char letters[size];
 
-    // Ask user to enter letters
+    
     cout << "Enter " << size << " letters: ";
     for (int i = 0; i < size; i++) {
         cin >> letters[i];
     }
 
-    // Print entered letters
+    
     cout << "Random letters: [";
     for (int i = 0; i < size; i++) {
         cout << "'" << letters[i] << "'";
@@ -46,10 +45,9 @@ int main() {
     }
     cout << "]" << endl;
 
-    // Sort letters alphabetically
+    
     sortAlphabet(letters, size);
-
-    // Print sorted letters
+    
     cout << "Sorted letters: [";
     for (int i = 0; i < size; i++) {
         cout << "'" << letters[i] << "'";
