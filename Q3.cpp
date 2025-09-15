@@ -22,7 +22,7 @@ int main() {
 
     int sum = 0;
 
-    // Loop to add numbers from 1 to n
+    
     for (int i = 1; i <= n; i++) {
         sum += i;
     }
