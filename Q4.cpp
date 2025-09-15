@@ -1,55 +1,53 @@
 // Write a program that populates an integer array, goes through it step by step and searches for a given number entered by the user. If the number is found, it should print “found” and return the position of the number; otherwise print “not found”.
 
-
-
-
 #include <iostream>
+#include <vector>
+#include <sstream>
 using namespace std;
 
 int main() {
-    int n;
+    string input;
+    int searchElement;
 
-  
-    cout << "Enter the size of the array: ";
-    cin >> n;
+    // Input array in one line like [1, 3, 5, 7, 9]
+    cout << "Enter Array (format [a, b, c]): ";
+    getline(cin, input);
 
-    int* arr = new int[n];
+    // Remove brackets
+    if (input.front() == '[') input.erase(0, 1);
+    if (input.back() == ']') input.pop_back();
 
-    
-    cout << "Enter " << n << " elements: ";
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+    // Parse numbers
+    stringstream ss(input);
+    vector<int> arr;
+    int num;
+    char comma;
+    while (ss >> num) {
+        arr.push_back(num);
+        ss >> comma; // consume comma if present
     }
 
-    int key;
-    cout << "Enter the number to search: ";
-    cin >> key;
+    // Input search number
+    cout << "Enter number to search: ";
+    cin >> searchElement;
 
-    bool found = false;
+    // Linear search
     int position = -1;
-
-  
-    for (int i = 0; i < n; i++) {
-        if (arr[i] == key) {
-            found = true;
-            position = i; 
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] == searchElement) {
+            position = i; // 0-based index
             break;
         }
     }
 
-    if (found)
-        cout << "Found at position " << position << endl;
+    // Output
+    if (position != -1)
+        cout << "Found at position: " << position << endl;
     else
-        cout << "Not Found" << endl;
+        cout << "Not found" << endl;
 
-    
     return 0;
 }
-
-
-
-
-
 
 
 
