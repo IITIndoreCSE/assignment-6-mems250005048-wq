@@ -1,65 +1,64 @@
 // Write a program to populate a character array with letters of the alphabet at random; subsequently the letters in the array should be arranged alphabetically (without using the sort function).
 
-
-
-
-
-
-
-
 #include <iostream>
-#include <cstdlib> // for rand() and srand()
-#include <ctime> // for time()
 using namespace std;
 
-int main() {
-    int n;
+// Function to swap characters
+void swapChar(char &a, char &b) {
+    char temp = a;
+    a = b;
+    b = temp;
+}
 
-    cout << "Enter the number of letters to generate: ";
-    cin >> n;
-
-    char* arr = new char[n];
-
-    // Initialize random seed
-    srand(time(0));
-
-    // Populate array with random letters (uppercase A-Z)
-    for (int i = 0; i < n; i++) {
-        arr[i] = 'A' + rand() % 26;
-    }
-
-    // Display original array
-    cout << "Original array: ";
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-
-    // Bubble sort to arrange alphabetically
+// Function to sort array alphabetically (Selection Sort)
+void sortAlphabet(char arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                char temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
             }
         }
+        swapChar(arr[i], arr[minIndex]);
+    }
+}
+
+int main() {
+    int size;
+
+    // Ask user for length
+    cout << "Enter length of array: ";
+    cin >> size;
+
+    char letters[size];
+
+    // Ask user to enter letters
+    cout << "Enter " << size << " letters: ";
+    for (int i = 0; i < size; i++) {
+        cin >> letters[i];
     }
 
-    // Display sorted array
-    cout << "Sorted array: ";
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+    // Print entered letters
+    cout << "Random letters: [";
+    for (int i = 0; i < size; i++) {
+        cout << "'" << letters[i] << "'";
+        if (i < size - 1) cout << ", ";
     }
-    cout << endl;
+    cout << "]" << endl;
 
-    delete[] arr;
+    // Sort letters alphabetically
+    sortAlphabet(letters, size);
+
+    // Print sorted letters
+    cout << "Sorted letters: [";
+    for (int i = 0; i < size; i++) {
+        cout << "'" << letters[i] << "'";
+        if (i < size - 1) cout << ", ";
+    }
+    cout << "]" << endl;
+
     return 0;
 }
-	
-
-
-
 
 
 
