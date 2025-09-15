@@ -1,79 +1,65 @@
 //  Write a program in C++ with a function called add to add two complex numbers and another function called subtract to subtract one complex number from another. 
 
-
-
-
-
-
-
 #include <iostream>
-#include <string>
-#include <sstream> // <-- ADD THIS LINE
 using namespace std;
 
-class Complex {
-private:
+struct Complex {
     double real;
     double imag;
-
-public:
-    Complex(double r = 0, double i = 0) {
-        real = r;
-        imag = i;
-    }
-
-    Complex add(const Complex& other) {
-        return Complex(real + other.real, imag + other.imag);
-    }
-
-    Complex subtract(const Complex& other) {
-        return Complex(real - other.real, imag - other.imag);
-    }
-
-    void display() {
-        if (imag >= 0)
-            cout << real << " + " << imag << "i" << endl;
-        else
-            cout << real << " - " << -imag << "i" << endl;
-    }
-
-    // Parse string like "3+4i" or "3-4i"
-    static Complex parse(const string& s) {
-        double r = 0, i = 0;
-        char op, ch;
-        stringstream ss(s); // works now
-        ss >> r >> op >> i >> ch;  
-        if (op == '-') i = -i;
-        return Complex(r, i);
-    }
 };
 
-int main() {
-    string s1, s2;
 
-    cout << "Complex number 1: ";
-    cin >> s1;
-    cout << "Complex number 2: ";
-    cin >> s2;
-
-    Complex c1 = Complex::parse(s1);
-    Complex c2 = Complex::parse(s2);
-
-    Complex sum = c1.add(c2);
-    Complex diff = c1.subtract(c2);
-
-    cout << "\nSum: ";
-    sum.display();
-
-    cout << "Difference: ";
-    diff.display();
-
-    return 0;
+Complex add(Complex c1, Complex c2) {
+    Complex result;
+    result.real = c1.real + c2.real;
+    result.imag = c1.imag + c2.imag;
+    return result;
+}
+Complex subtract(Complex c1, Complex c2) {
+    Complex result;
+    result.real = c1.real - c2.real;
+    result.imag = c1.imag - c2.imag;
+    return result;
 }
 
 
+void printComplex(Complex c) {
+    cout << c.real;
+    if (c.imag >= 0)
+        cout << " + " << c.imag << "i";
+    else
+        cout << " - " << -c.imag << "i";
+}
+
+int main() {
+    Complex c1, c2, sum, diff;
+    char sign, i;
 
 
+    cout << "Enter Complex Number 1 (in format a + bi): ";
+    cin >> c1.real >> sign >> c1.imag >> i;
+    if (sign == '-') c1.imag = -c1.imag;
+
+    
+    cout << "Enter Complex Number 2 (in format a + bi): ";
+    cin >> c2.real >> sign >> c2.imag >> i;
+    if (sign == '-') c2.imag = -c2.imag;
+
+
+    sum = add(c1, c2);
+    diff = subtract(c1, c2);
+
+
+    cout << "Sum: ";
+    printComplex(sum);
+    cout << endl;
+
+    cout << "Difference: ";
+    printComplex(diff);
+    cout << endl;
+
+    return 0;
+}
 
 
 
