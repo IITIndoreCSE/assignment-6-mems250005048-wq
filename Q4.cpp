@@ -1,23 +1,24 @@
 // Write a program that populates an integer array, goes through it step by step and searches for a given number entered by the user. If the number is found, it should print “found” and return the position of the number; otherwise print “not found”.
-
 #include <iostream>
 #include <vector>
 #include <sstream>
 using namespace std;
 
 int main() {
+    int length;
     string input;
     int searchElement;
 
-    // Input array in one line like [1, 3, 5, 7, 9]
-    cout << "Enter Array (format [a, b, c]): ";
+
+    cout << "Enter length of array: ";
+    cin >> length;
+    cin.ignore(); // clear newline before getline
+    cout << "Enter Array : ";
     getline(cin, input);
 
-    // Remove brackets
-    if (input.front() == '[') input.erase(0, 1);
-    if (input.back() == ']') input.pop_back();
 
-    // Parse numbers
+    if (!input.empty() && input.front() == '[') input.erase(0, 1);
+    if (!input.empty() && input.back() == ']') input.pop_back();
     stringstream ss(input);
     vector<int> arr;
     int num;
@@ -27,11 +28,17 @@ int main() {
         ss >> comma; // consume comma if present
     }
 
-    // Input search number
+    
+    if (arr.size() != length) {
+        cout << "Error: Entered array length does not match the specified length!" << endl;
+        return 1;
+    }
+
+    
     cout << "Enter number to search: ";
     cin >> searchElement;
 
-    // Linear search
+    
     int position = -1;
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] == searchElement) {
@@ -48,7 +55,6 @@ int main() {
 
     return 0;
 }
-
 
 
 
