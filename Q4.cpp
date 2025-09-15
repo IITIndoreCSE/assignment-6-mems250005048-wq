@@ -12,7 +12,7 @@ int main() {
 
     cout << "Enter length of array: ";
     cin >> length;
-    cin.ignore(); // clear newline before getline
+    cin.ignore(); 
     cout << "Enter Array : ";
     getline(cin, input);
 
@@ -25,7 +25,7 @@ int main() {
     char comma;
     while (ss >> num) {
         arr.push_back(num);
-        ss >> comma; // consume comma if present
+        ss >> comma; 
     }
 
     
@@ -47,7 +47,6 @@ int main() {
         }
     }
 
-    // Output
     if (position != -1)
         cout << "Found at position: " << position << endl;
     else
